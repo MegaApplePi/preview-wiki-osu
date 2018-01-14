@@ -1,0 +1,30 @@
+#toolbar{
+	align-items: center;
+	background: $grey50;
+	display: flex;
+	height: 36px;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+  z-index: 1;
+
+	&-path{
+		color: #000;
+		background: #fff;
+		border: $grey500 solid 1px;
+		flex-grow: 1;
+		font: inherit;
+    font-size: 14px;
+    height: 24px;
+		outline: none;
+    padding: 0 8px;
+	}
+
+	i[data-icon]{
+		color: #000;
+		font-size: 24px;
+		cursor: pointer;
+		padding: 4px;
+	}
+}

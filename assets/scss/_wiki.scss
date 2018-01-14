@@ -1,0 +1,327 @@
+// declarations were pretty much stolen from the osu-web, plz don't hurt me (;^_^)
+#wiki{
+	font-family: Exo\ 2,Arial Grande,Tahoma,Helvetica,Arial,Microsoft YaHei,SimHei,Arial Unicode MS,sans-serif;
+  line-height: 1.25;
+	font-size: 16px;
+
+  align-items: center;
+	display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: calc(#{"100vh - 36px"});
+	top: 36px;
+	position: relative;
+	overflow: auto;
+	z-index: 0;
+	&::before{
+		background-image: url("https://osu.ppy.sh/images/backgrounds/page-333.png");
+		content: "";
+		backface-visibility: hidden;
+		position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+	}
+
+	&-header{
+    box-sizing: border-box;
+		position: relative;
+		background-color: #333;
+		background-image: url("https://osu.ppy.sh/images/headers/wiki.jpg");
+		background-position: 50%;
+    background-size: cover;
+		height: 125px;
+		min-height: 125px;
+		max-height: 125px;
+		width: calc(#{"100% - 80px"});
+		max-width: 1000px;
+		padding-left: 40px;
+		padding-right: 40px;
+    z-index: 0;
+		&-title-box{
+			bottom: 0;
+			position: absolute;
+	    box-sizing: border-box;
+		}
+		&-subtitle{
+			font-family: inherit;
+			line-height: 1.1;
+			font-weight: 400;
+			text-shadow: 0 1px 3px rgba(0,0,0,.75);
+			margin: -5px -5px 5px;
+			padding: 5px;
+			color: #fff;
+			font-style: italic;
+			font-size: 16px;
+		}
+		&-title{
+			font-family: inherit;
+			line-height: 1.1;
+			font-weight: 400;
+			text-shadow: 0 1px 3px rgba(0,0,0,.75);
+			font-size: 32px;
+			margin: -5px -5px 5px;
+			padding: 5px;
+			color: #fff;
+			font-style: italic;
+			margin-bottom: 0;
+			padding-bottom: 15px;
+			border-bottom: 5px solid #fc2;
+		}
+	}
+	&-body{
+    box-sizing: border-box;
+    box-shadow: inset 0 2px 3px -1px rgba(0,0,0,.25);
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    padding: 20px;
+		width: calc(100% - 80px);
+    max-width: 1000px;align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    flex: none;
+		padding-left: 40px;
+		padding-right: 40px;
+    z-index: 0;
+		display: flex;
+		//  original v  ||  v the margin-top from the container
+		padding-top: 20px + 20px; // We're going to cheat a bit to skip over the container for the TOC and contents
+
+		&-toc{
+	    margin-right: 10px;
+	    width: 190px;
+			position: relative;
+			@media #{$mobile}{
+				display: none;
+			}
+			&-content{
+				position: absolute;
+				&-header{
+			    text-transform: uppercase;
+			    margin: 0 0 5px;
+			    padding: 0;
+			    color: #fff;
+			    font-size: 12px;
+			    font-style: normal;
+			    font-weight: 700;
+				}
+			}
+			&-list{
+				margin-top: 0;
+				margin-bottom: 10px;
+				padding: 0 0 0 10px;
+				list-style: none;
+				font-size: 15px;
+		    padding-left: 0;
+				a{
+					color: #ccc;
+			    text-decoration: none;
+			    display: inline-block;
+			    margin-bottom: 5px;
+			    outline-style: none;
+
+					&:active, &:focus, &:hover{
+						color: #eee;
+				    text-decoration: none;
+					}
+				}
+				li{
+					&:not([data-level="2"]){
+						font-size: 12px;
+					}
+					&[data-level="3"]{
+						padding-left: 10px;
+					}
+					&[data-level="4"]{
+						padding-left: 20px;
+					}
+					&[data-level="5"]{
+						padding-left: 30px;
+					}
+					&[data-level="6"]{
+						padding-left: 40px;
+					}
+				}
+			}
+		}
+
+		&-content{
+			flex: 1;
+	    min-width: 0;
+			font-family: Noto Sans,sans-serif;
+			line-height: 1.35;
+			color: inherit;
+			padding: 10px 20px 0;
+			font-size: 14px;
+			word-wrap: break-word;
+
+			// headings
+			.header{
+				font-family: Exo\ 2,Arial Grande,Tahoma,Helvetica,Arial,Microsoft YaHei,SimHei,Arial Unicode MS,sans-serif;
+				font-weight: 700;
+				font-style: normal;
+				color: #f9c;
+		    line-height: 1.1;
+				&:first-child{
+			    margin-top: 0;
+				}
+			}
+			h1{
+				@extend .header;
+				font-size: 30px;
+				margin: 0 0 20px;
+			}
+			h2{
+				@extend .header;
+		    font-size: 26px;
+		    margin: 50px -20px 10px;
+		    color: #fff;
+			}
+			h3{
+				@extend .header;
+		    font-size: 20px;
+		    margin: 30px -20px 10px;
+			}
+			h4{
+				@extend .header;
+		    font-size: 18px;
+		    margin: 30px -10px 10px;
+		    font-style: italic;
+			}
+			h5, h6{
+				font-weight: 400;
+		    font-style: italic;
+		    margin-top: 20px;
+			}
+			h5{
+				@extend .header;
+		    font-size: 16px;
+			}
+			h6{
+				@extend .header;
+		    font-size: 14px;
+			}
+
+			// horizontal bar
+			hr{
+				box-sizing: content-box;
+		    height: 0;
+				margin-top: 20px;
+		    margin-bottom: 20px;
+		    border: 0;
+		    border-top: 1px solid #eee;
+			}
+
+			// code
+			pre{
+				display: block;
+		    padding: 9.5px;
+		    margin: 0 0 10px;
+		    font-size: 15px;
+		    line-height: 1.25;
+		    word-break: break-all;
+		    word-wrap: break-word;
+		    color: #333;
+				font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+				background-color: #222;
+		    border: none;
+		    border-radius: 0;
+				code{
+			    white-space: pre-wrap;
+			    font-size: inherit;
+			    border: none;
+			    padding: 0;
+				}
+			}
+			code{
+				font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+		    background: none;
+				border-radius: 4px;
+		    background-color: #222;
+		    border: 1px solid #111;
+		    color: #6cf;
+		    padding: 1px 4px;
+			}
+
+			// tables
+			table{
+				border-collapse: collapse;
+				border-spacing: 0;
+		    background-color: transparent;
+				font-family: Exo\ 2,Arial Grande,Tahoma,Helvetica,Arial,Microsoft YaHei,SimHei,Arial Unicode MS,sans-serif;
+				margin-bottom: 20px;
+			}
+			th{
+		    text-align: left;
+				padding: 5px;
+		    border-top: none;
+		    border-bottom: 2px solid #fc2;
+		    font-weight: 700;
+			}
+			td{
+				border-top: 1px solid rgba(255,204,34,.5);
+				padding: 5px;
+			}
+
+			// lists
+			ol, ul{
+				margin-top: 0;
+				margin-bottom: 10px;
+		    padding-left: 20px;
+				ol, ul{
+					margin-bottom: 0;
+					li{
+				    margin: 5px 0;
+						color: #ccc;
+					}
+				}
+				li{
+					margin: 5px 0;
+				}
+			}
+
+			// links
+			a{
+				background-color: transparent;
+				text-decoration: none;
+		    transition: color 80ms linear;
+				color: #fc2;
+		    outline-style: none;
+				&:active, &:focus, &:hover{
+			    color: #fd5;
+				}
+			}
+
+			// images
+			img{
+				border: 0;
+				vertical-align: middle;
+		    max-width: 100%;
+				&.figure{
+			    display: block;
+			    margin: 0 auto;
+				}
+			}
+			img + em{
+				margin-top: 5px;
+				font-style: normal;
+				display: inline-block;
+			}
+
+			// p
+			p{
+				margin: 0 0 10px;
+		    margin-bottom: 1.5em;
+		    line-height: 1.5;
+				&.figure{
+					margin: 1.5em 0;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
