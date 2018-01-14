@@ -3,13 +3,13 @@
 // const yaml = require("js-yaml");
 
 import update from "./update";
-import windowEvents from "./windowEvents";
+import events from "./events";
 
 update();
-windowEvents();
+events();
 
 /*
-	X - <script src="assets/js/nodeRequire.js"></script>
+  X - <script src="assets/js/nodeRequire.js"></script>
   X - <script src="assets/js/notify.js"></script>
   <script src="assets/js/update.js"></script>
   <script src="assets/js/settings.js"></script>
@@ -18,5 +18,5 @@ windowEvents();
   <script src="assets/js/render.js"></script>
   <script src="assets/js/parseFile.js"></script>
   <script src="assets/js/events.js"></script>
-	<script src="assets/js/mutationObserver.js"></script>
+  <script src="assets/js/mutationObserver.js"></script>
 */

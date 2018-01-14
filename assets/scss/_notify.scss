@@ -1,22 +1,22 @@
 #notify{
-	background: $grey50;
-	bottom: 0;
-	cursor: default;
-	left: 0;
-	color: #000;
-	display: flex;
-	font-size: 14px;
-	justify-content: space-between;
-	position: fixed;// use fixed because moving to sections will break its position
-	margin-bottom: 32px;
-	margin-left: 32px;
-	min-width: 288px;
-	max-width: 568px;
-	padding: 14px 24px;
-	transition: 500ms transform;
-	user-select: none;
-	z-index: 1;
-	&[data-hidden]{
-		transform: translateY(calc(#{"100% + 32px"}));
-	}
+  background: $grey50;
+  bottom: 0;
+  cursor: default;
+  left: 0;
+  color: #000;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  position: fixed;// use fixed because moving to sections will break its position
+  margin-bottom: 32px;
+  margin-left: 32px;
+  min-width: 288px;
+  max-width: 568px;
+  padding: 14px 24px;
+  transition: 500ms transform;
+  user-select: none;
+  z-index: 1;
+  &[data-hidden]{
+    transform: translateY(calc(#{"100% + 32px"}));
+  }
 }

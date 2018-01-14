@@ -27,35 +27,35 @@ $mobile: "(max-width: 839px)";
 }
 body{
   display: flex;
-	flex-direction: column;
+  flex-direction: column;
   font-family: "Exo 2", sans-serif;
   justify-content: center;
   margin: 0;
   overflow: hidden;
   padding: 0;
-	::-webkit-scrollbar{
-		width: 16px;
-		&-track{
-			border: #4a4a4a solid 1px;
-			background: #242424;
-		}
-		&-thumb{
-			border: #333 solid 1px;
-			background: #4a4a4a;
-		}
-	}
-	[data-link]{
-		cursor: pointer;
-		color: $teal500;
-		transform: 100ms color;
-		&:hover{
-			color: $teal400;
-		}
-		&:active{
-			color: $teal600;
-		}
-	}
-	@import "toolbar";
-	@import "notify";
-	@import "wiki";
+  ::-webkit-scrollbar{
+    width: 16px;
+    &-track{
+      border: #4a4a4a solid 1px;
+      background: #242424;
+    }
+    &-thumb{
+      border: #333 solid 1px;
+      background: #4a4a4a;
+    }
+  }
+  [data-link]{
+    cursor: pointer;
+    color: $teal500;
+    transform: 100ms color;
+    &:hover{
+      color: $teal400;
+    }
+    &:active{
+      color: $teal600;
+    }
+  }
+  @import "toolbar";
+  @import "notify";
+  @import "wiki";
 }
