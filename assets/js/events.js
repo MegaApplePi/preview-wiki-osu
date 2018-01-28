@@ -1,6 +1,7 @@
 /* globals nodeRequire */
 import notify from "./notify";
 import parseFile from "./parseFile";
+import requestParsedown from "./requestParsedown";
 
 const {app, dialog} = nodeRequire("electron").remote;
 
