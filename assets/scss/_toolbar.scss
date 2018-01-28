@@ -23,6 +23,10 @@
 
   &-menu{
     &-list{
+      background: #fff;
+      position: absolute;
+      right: 0;
+      top: 32px;
       &[data-hidden]{
         display: none;
       }
