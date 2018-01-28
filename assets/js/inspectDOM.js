@@ -42,7 +42,7 @@ export default function inspectDOM() {
     $wikiHeaderTitle.textContent = headings[0].textContent;
     headings[0].remove();
   } else { // just use the URL
-    let pathParts = $toolbarPath.value.split(/\\/);
+    let pathParts = $toolbarPath.value.split(/\\|\//);
     let title = pathParts[pathParts.length - 2].replace(/_/g, " ");
     $wikiHeaderTitle.textContent = title;
   }
