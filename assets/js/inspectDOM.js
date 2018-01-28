@@ -48,9 +48,11 @@ export default function inspectDOM() {
   }
 
   // NOTE we believe that the subtitle is obtained from the URL
-  let pathParts = $toolbarPath.value.split(/\\/);
+  let pathParts = $toolbarPath.value.split(/\\|\//);
   let subtitle = pathParts[pathParts.length - 3].replace(/_/g, " ");
-  if (subtitle !== "wiki") {
+  if (subtitle === "wiki") {
+    $wikiHeaderSubtitle.textContent = "";
+  } else {
     $wikiHeaderSubtitle.textContent = subtitle;
   }
 
