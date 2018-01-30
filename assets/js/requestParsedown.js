@@ -3,7 +3,7 @@ import notify from "./notify";
 
 const $loading = document.getElementById("loading");
 const $wiki = document.getElementById("wiki");
-const $wikiBodyContent = document.getElementById("wiki-body-content");
+const $wikiBodyPageContent = document.getElementById("wiki-body-page-content");
 
 function xhr_loadstart() {
   $loading.removeAttribute("data-hidden");
@@ -20,7 +20,7 @@ function xhr_load(e) {
   } else {
     // didParsedownFail = false;
     // render(responseText);
-    $wikiBodyContent.insertAdjacentHTML("afterBegin", responseText);
+    $wikiBodyPageContent.insertAdjacentHTML("afterBegin", responseText);
   }
   $wiki.scrollTop = 0;
   inspectDOM();

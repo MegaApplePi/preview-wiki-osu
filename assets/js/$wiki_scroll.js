@@ -1,14 +1,14 @@
 const $wiki = document.getElementById("wiki");
-const $wikiBodyToc = document.getElementById("wiki-body-toc");
-const $wikiBodyTocContent = document.getElementById("wiki-body-toc-content");
+const $wikiBodyPageToc = document.getElementById("wiki-body-page-toc");
+const $wikiBodyPageTocContent = document.getElementById("wiki-body-page-toc-content");
 
 export default function $wiki_scroll() {
   // not really the optimal way to do this, but it works... in previous attempts, using postition fixed breaks it
-  if ($wikiBodyTocContent.getBoundingClientRect().height < window.innerHeight) {
-    if ($wikiBodyToc.getBoundingClientRect().top < $wiki.scrollTop && $wiki.scrollTop - 156 > 0) {
-      $wikiBodyTocContent.style.top = `${$wiki.scrollTop - 156}px`;
+  if ($wikiBodyPageTocContent.getBoundingClientRect().height < window.innerHeight) {
+    if ($wikiBodyPageToc.getBoundingClientRect().top < $wiki.scrollTop && $wiki.scrollTop - 156 > 0) {
+      $wikiBodyPageTocContent.style.top = `${$wiki.scrollTop - 156}px`;
     } else if ($wiki.scrollTop === 0) {
-      $wikiBodyTocContent.style.top = "0";
+      $wikiBodyPageTocContent.style.top = "0";
     }
   }
 }

@@ -5,17 +5,18 @@ const path = nodeRequire("path");
 
 const $wikiHeaderTitle = document.getElementById("wiki-header-title");
 const $wikiHeaderSubtitle = document.getElementById("wiki-header-subtitle");
-const $wikiBodyTocList = document.getElementById("wiki-body-toc-list");
+const $wikiBodyPageTocList = document.getElementById("wiki-body-page-toc-list");
 const $toolbarPath = document.getElementById("toolbar-path");
 
 function getHeadings() {
-  return document.querySelectorAll("#wiki-body-content h1, #wiki-body-content h2, #wiki-body-content h3, #wiki-body-content h4, #wiki-body-content h5, #wiki-body-content h6");
+  // TODO make the query selector better
+  return document.querySelectorAll("#wiki-body-page-content h1, #wiki-body-page-content h2, #wiki-body-page-content h3, #wiki-body-page-content h4, #wiki-body-page-content h5, #wiki-body-page-content h6");
 }
 function getImages() {
-  return document.querySelectorAll("#wiki-body-content img");
+  return document.querySelectorAll("#wiki-body-page-content img");
 }
 function getLinks() {
-  return document.querySelectorAll("#wiki-body-content a");
+  return document.querySelectorAll("#wiki-body-page-content a");
 }
 
 function preventDefault(e) {
@@ -74,11 +75,11 @@ export default function inspectDOM() {
       // ol.insertAdjacentElement("beforeEnd", li);
       prevTocItem.insertAdjacentElement("beforeEnd", ol);
     } else {
-      $wikiBodyTocList.insertAdjacentElement("beforeEnd", li);
+      $wikiBodyPageTocList.insertAdjacentElement("beforeEnd", li);
     }
     */
 
-    $wikiBodyTocList.insertAdjacentElement("beforeEnd", li); // We're going to cheat a bit to skip nesting these
+    $wikiBodyPageTocList.insertAdjacentElement("beforeEnd", li); // We're going to cheat a bit to skip nesting these
   }
 
   /* heading ids */

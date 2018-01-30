@@ -5,8 +5,9 @@ import requestParsedown from "./requestParsedown";
 const fs = nodeRequire("fs");
 const path = nodeRequire("path");
 
-const $wikiBodyContent = document.getElementById("wiki-body-content");
-const $wikiBodyTocList = document.getElementById("wiki-body-toc-list");
+const $wikiBodyPageContent = document.getElementById("wiki-body-page-content");
+const $wikiBodyPageTocList = document.getElementById("wiki-body-page-toc-list");
+const $wikiBodyNotice = document.getElementById("wiki-body-notice");
 const $toolbarPath = document.getElementById("toolbar-path");
 const $pseudo = document.getElementById("pseudo");
 
@@ -31,11 +32,11 @@ export default function parseFile(filePath) {
       });
 
       // clean up the wiki body and toc
-      while ($wikiBodyContent.firstChild) {
-        $wikiBodyContent.firstChild.remove();
+      while ($wikiBodyPageContent.firstChild) {
+        $wikiBodyPageContent.firstChild.remove();
       }
-      while ($wikiBodyTocList.firstChild) {
-        $wikiBodyTocList.firstChild.remove();
+      while ($wikiBodyPageTocList.firstChild) {
+        $wikiBodyPageTocList.firstChild.remove();
       }
       // TODO handle metadata before requesting server
 
