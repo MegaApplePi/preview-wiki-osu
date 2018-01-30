@@ -109,8 +109,9 @@ export default function inspectDOM() {
     element.src = src;
     let hasTitle = element.hasAttribute("title") && (element.getAttribute("title").length > 0);
     let isAlone = (element.parentElement.children.length === 1) && (element.parentElement.textContent.length === 0);
+    let isParentTagP = element.parentElement.tagName === "P";
 
-    if (hasTitle && isAlone) {
+    if (hasTitle && isAlone && isParentTagP) {
       element.parentElement.classList.add("figure");
       element.classList.add("figure");
       let em = document.createElement("em");
