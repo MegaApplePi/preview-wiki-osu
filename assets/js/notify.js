@@ -2,7 +2,6 @@ const $notify = document.getElementById("notify");
 const $notifyMessage = document.getElementById("notify-message");
 let timer;
 
-
 function $notify_timeout() {
   $notify.setAttribute("data-hidden", "");
 }

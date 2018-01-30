@@ -8,6 +8,7 @@ const path = nodeRequire("path");
 const $wikiBodyContent = document.getElementById("wiki-body-content");
 const $wikiBodyTocList = document.getElementById("wiki-body-toc-list");
 const $toolbarPath = document.getElementById("toolbar-path");
+const $pseudo = document.getElementById("pseudo");
 
 export default function parseFile(filePath) {
   if (fs.statSync(filePath).isFile()) {
@@ -19,7 +20,7 @@ export default function parseFile(filePath) {
       let rootDirectoryFiles = fs.readdirSync(path.resolve(rootDirectory));
       let checks = [rootDirectoryFiles.indexOf(".git"), rootDirectoryFiles.indexOf(".github"), rootDirectoryFiles.indexOf("news"), rootDirectoryFiles.indexOf("wiki")];
       if (checks.includes(-1)) {
-        notify("Error 5: not an osu-wiki repo");
+        notify("Warning 5: not an osu-wiki repo");
       }
       let text = fs.readFileSync(filePath, {"encoding": "utf8"});
 
@@ -37,6 +38,16 @@ export default function parseFile(filePath) {
         $wikiBodyTocList.firstChild.remove();
       }
       // TODO handle metadata before requesting server
+
+      // remove html tables
+      while ($pseudo.firstChild) {
+        $pseudo.firstChild.remove();
+      }
+      $pseudo.insertAdjacentHTML("afterBegin", text);
+      while ($pseudo.querySelectorAll("table").length > 0) {
+        $pseudo.querySelectorAll("table")[0].remove();
+      }
+      text = $pseudo.innerHTML;
 
       requestParsedown(text);
     } else {

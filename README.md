@@ -34,7 +34,7 @@ Requirements:
 -   Error 4: Parsedown server ({error code}) error; using Showdown
     -   Type: local files
     -   The request failed.
--   Error 5: not an osu-wiki repo
+-   Warning 5: not an osu-wiki repo
     -   Type: local files
     -   Loaded file was not part of the osu-wiki repository.
 -   Error 6: no file was selected
