@@ -50,6 +50,22 @@ export default function parseFile(filePath) {
       }
       text = $pseudo.innerHTML;
 
+      let lines = text.split(/\n/);
+      let outdated = [(/^-{3,}$/).test(lines[0].trim()), (/^outdated:\strue$/.test(lines[1].trim())), (/^-{3,}$/).test(lines[2].trim())];
+      /*
+      outdated looks for something like this at the top of the page:
+        ---
+        outdated: true
+        ---
+      */
+      if (outdated[0] && outdated[1] && outdated[2]) {
+        lines.splice(0, 3);
+        text = lines.join("\n");
+        $wikiBodyNotice.removeAttribute("data-hidden");
+      } else {
+        $wikiBodyNotice.setAttribute("data-hidden", "");
+      }
+
       requestParsedown(text);
     } else {
       notify("Error 2: unexpected file type");
