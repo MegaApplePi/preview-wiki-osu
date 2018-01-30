@@ -177,7 +177,7 @@
         //////// Stylistic Issues ////////
         "array-bracket-newline": [1, "consistent"],             // enforce linebreaks after opening and before closing array brackets
         "array-bracket-spacing": [1, "never"],             // enforce consistent spacing inside array brackets
-        "array-element-newline": [1, "never"],             // enforce line breaks after each array element
+        "array-element-newline": [1, {"multiline": true}],             // enforce line breaks after each array element
         "block-spacing": 1,                     // disallow or enforce spaces inside of blocks after opening block and before closing block
         "brace-style": [1, "1tbs"],                       // enforce consistent brace style for blocks
         "camelcase": 0,                         // enforce camelcase naming convention
