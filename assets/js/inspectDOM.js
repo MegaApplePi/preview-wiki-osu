@@ -89,6 +89,7 @@ export default function inspectDOM() {
   }
   headings = null; // nullify headings (we are done with it)
 
+  // TODO check path to see if github, if so, use github to get images
   /* images */
   let images = getImages();
   for (let element of images) {

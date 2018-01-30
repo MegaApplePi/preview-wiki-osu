@@ -28,11 +28,11 @@ function xhr_error(e) {
   notify(`Error 8: GitHub server (${status}) error`);
 }
 
-// TODO get images from github if using github path
-// TODO fix for local file paths
+// TODO support osu.ppy.sh links (assume English and support ?locale=)
 export default function $toolbarPath_keypress(e) {
   let {key} = e;
   if (key === "Enter") {
+    $toolbarPath.blur();
     let {value} = $toolbarPath;
     let githubPath = value.split(/\//g);
     if (githubPath[2] === "github.com" && githubPath[4] === "osu-wiki" && githubPath[5] === "blob") {
