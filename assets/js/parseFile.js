@@ -24,11 +24,15 @@ export default function parseFile(filePath) {
       }
       let text = fs.readFileSync(filePath, {"encoding": "utf8"});
 
-      // when the text is sent to the server, Parsedown has issues trying to differentiate between underscores (italics) and underscores in links; to fix this, we will replace underscores in links to \u03A0 (π) then convert them back afterwards
+      // replace underscores in links to pi
       text = text.replace(/(?:(\]\())(?:(.*?)(\)))/g, (match) => {
         let replaced = match.replace(/_/g, "\u03A0");
         return replaced;
       });
+      // replace less than to leftwards wave arrow
+      text = text.replace(/</g, "\u219c");
+      // replace greater than to rightwards wave arrow
+      text = text.replace(/>/g, "\u219d");
 
       resetWikiBody();
 

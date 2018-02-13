@@ -20,6 +20,8 @@ function xhr_load(e) {
   } else {
     // didParsedownFail = false;
     // render(responseText);
+    responseText = responseText.replace(/\u219c/g, "&#x3c;");// parse \u219c back to <
+    responseText = responseText.replace(/\u219d/g, "&#x3e;");// parse \u219d back to >
     $wikiBodyPageContent.insertAdjacentHTML("afterBegin", responseText);
   }
   $wiki.scrollTop = 0;
