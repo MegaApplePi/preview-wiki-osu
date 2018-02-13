@@ -2,6 +2,7 @@
 import notify from "./notify";
 import parseFile from "./parseFile";
 import requestParsedown from "./requestParsedown";
+import resetWikiBody from "./resetWikiBody";
 
 const fs = nodeRequire("fs");
 const path = nodeRequire("path");
@@ -20,6 +21,7 @@ function xhr_load(e) {
   if (/^(4|5)\d{2}$/.test(status)) {
     notify(`Error 7: GitHub server (${status}) error`);
   } else {
+    resetWikiBody();
     requestParsedown(responseText);
   }
 }

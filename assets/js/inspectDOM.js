@@ -1,16 +1,19 @@
 /* globals nodeRequire */
 import getHeadingID from "./getHeadingID";
 
+const {shell} = nodeRequire("electron");
+
 const path = nodeRequire("path");
 
 const $wikiHeaderTitle = document.getElementById("wiki-header-title");
 const $wikiHeaderSubtitle = document.getElementById("wiki-header-subtitle");
 const $wikiBodyPageTocList = document.getElementById("wiki-body-page-toc-list");
+const $wikiBodyPageContent = document.getElementById("wiki-body-page-content");
 const $toolbarPath = document.getElementById("toolbar-path");
 
 function getHeadings() {
   // TODO make the query selector better
-  return document.querySelectorAll("#wiki-body-page-content h1, #wiki-body-page-content h2, #wiki-body-page-content h3, #wiki-body-page-content h4, #wiki-body-page-content h5, #wiki-body-page-content h6");
+  return $wikiBodyPageContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
 }
 function getImages() {
   return document.querySelectorAll("#wiki-body-page-content img");
@@ -125,6 +128,17 @@ export default function inspectDOM() {
   images = null; // nullify images (we are done with it)
 
   /* links */
+  function openInBrowser(e) {
+    e.preventDefault();
+    let {target} = e;
+    let href = target.getAttribute("href");
+    if (/^https?|mailto:/.test(href)) {
+      shell.openExternal(href);
+    } else if (!(/^\/wiki\//).test(href)) {
+      shell.openExternal(`https://osu.ppy.sh${href}`);
+    }
+    return false;
+  }
   let links = getLinks();
   for (let element of links) {
     let href = element.getAttribute("href");
@@ -135,8 +149,8 @@ export default function inspectDOM() {
       element.setAttribute("data-title", "section link");
     } else {
       element.addEventListener("mousedown", preventDefault);
-      element.addEventListener("click", preventDefault);
       element.addEventListener("auxclick", preventDefault);
+      element.addEventListener("click", openInBrowser);
     }
   }
   links = null; // nullify links (we are done with it)

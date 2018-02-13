@@ -1,12 +1,11 @@
 /* globals nodeRequire */
 import notify from "./notify";
 import requestParsedown from "./requestParsedown";
+import resetWikiBody from "./resetWikiBody";
 
 const fs = nodeRequire("fs");
 const path = nodeRequire("path");
 
-const $wikiBodyPageContent = document.getElementById("wiki-body-page-content");
-const $wikiBodyPageTocList = document.getElementById("wiki-body-page-toc-list");
 const $wikiBodyNotice = document.getElementById("wiki-body-notice");
 const $toolbarPath = document.getElementById("toolbar-path");
 const $pseudo = document.getElementById("pseudo");
@@ -31,13 +30,8 @@ export default function parseFile(filePath) {
         return replaced;
       });
 
-      // clean up the wiki body and toc
-      while ($wikiBodyPageContent.firstChild) {
-        $wikiBodyPageContent.firstChild.remove();
-      }
-      while ($wikiBodyPageTocList.firstChild) {
-        $wikiBodyPageTocList.firstChild.remove();
-      }
+      resetWikiBody();
+
       // TODO handle metadata before requesting server
 
       // remove html tables
@@ -51,14 +45,10 @@ export default function parseFile(filePath) {
       text = $pseudo.innerHTML;
 
       let lines = text.split(/\n/);
-      let outdated = [(/^-{3,}$/).test(lines[0].trim()), (/^outdated:\strue$/.test(lines[1].trim())), (/^-{3,}$/).test(lines[2].trim())];
-      /*
-      outdated looks for something like this at the top of the page:
-        ---
-        outdated: true
-        ---
-      */
-      if (outdated[0] && outdated[1] && outdated[2]) {
+      let outdatedLine1 = (/^-{3,}$/).test(lines[0].trim());
+      let outdatedLine2 = (/^outdated:\strue$/.test(lines[1].trim()));
+      let outdatedLine3 = (/^-{3,}$/).test(lines[2].trim());
+      if (outdatedLine1 && outdatedLine2 && outdatedLine3) {
         lines.splice(0, 3);
         text = lines.join("\n");
         $wikiBodyNotice.removeAttribute("data-hidden");

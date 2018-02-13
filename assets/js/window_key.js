@@ -19,6 +19,8 @@ export function window_keyup(e) {
     $toolbarUpload.click();
   } else if (keyMap.F12) {
     nodeRequire("electron").remote.getCurrentWindow().toggleDevTools();
+  } else if (keyMap.F5) {
+    nodeRequire("electron").remote.getCurrentWindow().reload();
   }
   let {key} = e;
   delete keyMap[key];

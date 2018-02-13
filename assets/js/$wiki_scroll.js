@@ -10,5 +10,7 @@ export default function $wiki_scroll() {
     } else if ($wiki.scrollTop === 0) {
       $wikiBodyPageTocContent.style.top = "0";
     }
+  } else {
+    $wikiBodyPageTocContent.style.top = "0";
   }
 }
