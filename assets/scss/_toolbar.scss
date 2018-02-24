@@ -30,8 +30,24 @@
       &[data-hidden]{
         display: none;
       }
+      .item{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover{
+          background: #ccc;
+        }
+
+        i[data-icon], span{
+          cursor: default;
+          pointer-events: none;
+          user-select: none;
+        }
+      }
     }
   }
+
   i[data-icon]{
     color: #000;
     font-size: 24px;
