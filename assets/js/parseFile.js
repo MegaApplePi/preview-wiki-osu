@@ -37,8 +37,6 @@ export default function parseFile(filePath) {
 
       resetWikiBody();
 
-      // TODO handle metadata before requesting server
-
       // remove html tables
       while ($pseudo.firstChild) {
         $pseudo.firstChild.remove();
@@ -49,17 +47,35 @@ export default function parseFile(filePath) {
       }
       text = $pseudo.innerHTML;
 
+      // metadata
       let lines = text.split(/\n/);
-      let outdatedLine1 = (/^-{3,}$/).test(lines[0].trim());
-      let outdatedLine2 = (/^outdated:\strue$/.test(lines[1].trim()));
-      let outdatedLine3 = (/^-{3,}$/).test(lines[2].trim());
-      if (outdatedLine1 && outdatedLine2 && outdatedLine3) {
-        lines.splice(0, 3);
-        text = lines.join("\n");
-        $wikiBodyNotice.removeAttribute("data-hidden");
-      } else {
-        $wikiBodyNotice.setAttribute("data-hidden", "");
+      let hasMetadata = false;
+      let metadata = [];
+      for (let lineNum = 0; lineNum < lines.length; lineNum++) {
+        let line = lines[lineNum].trim();
+        if (lineNum === 0 && (/^-{3,}$/).test(line)) {
+          hasMetadata = true;
+          metadata.push(line);
+          continue;
+        }
+        if (hasMetadata) {
+          metadata.push(line);
+          if ((/^-{3,}$/).test(line)) {
+            break;
+          }
+        }
       }
+      if (metadata.length > 0) {
+        lines.splice(0, metadata.length);
+        text = lines.join("\n");
+        if (metadata.includes("outdated: true")) {
+          $wikiBodyNotice.removeAttribute("data-hidden");
+        } else {
+          $wikiBodyNotice.setAttribute("data-hidden", "");
+        }
+      }
+
+      // TODO fix bullet list spacing before requesting from server
 
       requestParsedown(text);
     } else {
