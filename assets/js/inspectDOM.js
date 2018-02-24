@@ -47,7 +47,7 @@ export default function inspectDOM() {
       $wikiHeaderTitle.textContent = headings[0].textContent;
       headings[0].remove();
     } else { // just use the URL
-      let pathParts = $toolbarPath.value.split(/\\|\//);
+      let pathParts = $toolbarPath.getAttribute("data-value").split(/\\|\//);
       let title = pathParts[pathParts.length - 2].replace(/_/g, " ");
       $wikiHeaderTitle.textContent = title;
     }
@@ -55,7 +55,7 @@ export default function inspectDOM() {
 
   // NOTE we believe that the subtitle is obtained from the URL
   (function() {
-    let pathParts = $toolbarPath.value.split(/\\|\//);
+    let pathParts = $toolbarPath.getAttribute("data-value").split(/\\|\//);
     let subtitle = pathParts[pathParts.length - 3].replace(/_/g, " ");
     if (subtitle === "wiki") {
       $wikiHeaderSubtitle.textContent = "";
@@ -102,8 +102,8 @@ export default function inspectDOM() {
   for (let element of images) {
     let src = element.getAttribute("src");
     src = src.replace(/\u03A0/g, "_"); // convert \u03A0 (π) back to underscores
-    if (/^https?:\/\/github.com/.test($toolbarPath.value)) {
-      let pathParts = $toolbarPath.value.split(/\\|\//);
+    if (/^https?:\/\/github.com/.test($toolbarPath.getAttribute("data-value"))) {
+      let pathParts = $toolbarPath.getAttribute("data-value").split(/\\|\//);
       pathParts[pathParts.indexOf("github.com")] = "raw.githubusercontent.com"; // change domain to GitHub's raw domain
       pathParts.splice(pathParts.indexOf("blob"), 1);// remove /blob/ in URL
 

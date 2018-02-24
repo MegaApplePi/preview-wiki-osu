@@ -8,7 +8,8 @@ const fs = nodeRequire("fs");
 const path = nodeRequire("path");
 
 const $loading = document.getElementById("loading");
-const $toolbarPath = document.getElementById("toolbar-path");
+const $toolbarPathInput = document.getElementById("toolbar-path-input");
+const $toolbarPathStatus = document.getElementById("toolbar-path-status");
 
 function xhr_loadstart() {
   $loading.removeAttribute("data-hidden");
@@ -31,13 +32,14 @@ function xhr_error(e) {
 }
 
 // TODO support osu.ppy.sh links (assume English and support ?locale=)
-export default function $toolbarPath_keypress(e) {
+export default function $toolbarPathInput_keypress(e) {
   let {key} = e;
   if (key === "Enter") {
-    $toolbarPath.blur();
-    let {value} = $toolbarPath;
+    $toolbarPathInput.blur();
+    let {value} = $toolbarPathInput;
     let githubPath = value.split(/\//g);
     if (githubPath[2] === "github.com" && githubPath[4] === "osu-wiki" && githubPath[5] === "blob") {
+      $toolbarPathStatus.setAttribute("data-status", "GitHub");
       let xhr = new XMLHttpRequest();
       let user = githubPath[3];
       let branchPath = githubPath.splice(6, githubPath.length - 1).join("/");
@@ -50,6 +52,7 @@ export default function $toolbarPath_keypress(e) {
       xhr.addEventListener("error", xhr_error);
       xhr.send();
     } else if (githubPath[2] === "raw.githubusercontent.com" && githubPath[4] === "osu-wiki") {
+      $toolbarPathStatus.setAttribute("data-status", "GitHub");
       let xhr = new XMLHttpRequest();
       xhr.open("GET", value);
       xhr.addEventListener("loadstart", xhr_loadstart);
@@ -58,6 +61,7 @@ export default function $toolbarPath_keypress(e) {
       xhr.addEventListener("error", xhr_error);
       xhr.send();
     } else if (fs.existsSync(path.resolve(value))) {
+      $toolbarPathStatus.setAttribute("data-status", "local");
       parseFile(path.resolve(value));
     } else {
       notify("Error 9: invalid path");

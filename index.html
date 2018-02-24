@@ -22,7 +22,19 @@
     <i id="toolbar-forward" data-icon="arrow-right"></i>
     <i id="toolbar-refresh" data-icon="refresh"></i>
     <i id="toolbar-upload" data-icon="upload"></i>
-    <input id="toolbar-path" data-value="" type="text"/>
+    <div id="toolbar-path" data-value="">
+      <div id="toolbar-path-status" data-status>
+        <div title="This file was loaded from your machine." data-state="local">
+          <i data-icon="flash-circle"></i>
+          <div id="toolbar-path-status-text">Local</div>
+        </div>
+        <div title="This file was loaded from GitHub." data-state="GitHub">
+          <i data-icon="github-circle"></i>
+          <div id="toolbar-path-status-text">GitHub</div>
+        </div>
+      </div>
+      <input id="toolbar-path-input" type="text" />
+    </div>
     <i id="toolbar-menu" data-icon="menu"></i>
     <div id="toolbar-menu-list" data-hidden>
       <div class="item">

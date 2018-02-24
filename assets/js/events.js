@@ -1,13 +1,13 @@
 import {window_keydown, window_keyup} from "./window_key";
 import $toolbarMenu_click from "./$toolbarMenu_click";
-import $toolbarPath_keypress from "./$toolbarPath_keypress";
+import $toolbarPathInput_keypress from "./$toolbarPathInput_keypress";
 import $toolbarUpload_click from "./$toolbarUpload_click";
 import $wiki_scroll from "./$wiki_scroll";
 import window_dragover from "./window_dragover";
 import window_drop from "./window_drop";
 
 const $wiki = document.getElementById("wiki");
-const $toolbarPath = document.getElementById("toolbar-path");
+const $toolbarPathInput = document.getElementById("toolbar-path-input");
 const $toolbarUpload = document.getElementById("toolbar-upload");
 const $toolbarMenu = document.getElementById("toolbar-menu");
 
@@ -19,5 +19,5 @@ export default function events() {
   $wiki.addEventListener("scroll", $wiki_scroll);
   $toolbarUpload.addEventListener("click", $toolbarUpload_click);
   $toolbarMenu.addEventListener("click", $toolbarMenu_click);
-  $toolbarPath.addEventListener("keypress", $toolbarPath_keypress);
+  $toolbarPathInput.addEventListener("keypress", $toolbarPathInput_keypress);
 }

@@ -8,12 +8,13 @@ const path = nodeRequire("path");
 
 const $wikiBodyNotice = document.getElementById("wiki-body-notice");
 const $toolbarPath = document.getElementById("toolbar-path");
+const $toolbarPathInput = document.getElementById("toolbar-path-input");
 const $pseudo = document.getElementById("pseudo");
 
 export default function parseFile(filePath) {
   if (fs.statSync(filePath).isFile()) {
     if (filePath.split(/\./).pop() === "md") {
-      $toolbarPath.value = filePath; // set the displayed value
+      $toolbarPathInput.value = filePath; // set the displayed value
       $toolbarPath.setAttribute("data-value", filePath); // set the internal value (we will assume that it is the current file)
       let pathParts = filePath.split(/\\|\//g);
       let rootDirectory = pathParts.slice(0, pathParts.indexOf("wiki")).join("/");

@@ -14,11 +14,56 @@
     background: #fff;
     border: $grey500 solid 1px;
     flex-grow: 1;
-    font: inherit;
     font-size: 14px;
     height: 24px;
-    outline: none;
-    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    &-status{
+      display: flex;
+      align-items: center;
+      cursor: default;
+      height: 100%;
+
+      i[data-icon]{
+        padding: 0 2px 0 8px!important;
+        font-size: 16px!important;
+        cursor: default!important;
+      }
+
+      div[data-state]{
+        display: none;
+      }
+
+      &[data-status="local"]{
+        [data-state="local"]{
+          display: flex;
+        }
+      }
+      &[data-status="GitHub"]{
+        [data-state="GitHub"]{
+          display: flex;
+        }
+      }
+
+      &-text{
+        padding: 0 8px 0 2px;
+        border-right: #ccc 1px solid;
+      }
+    }
+
+    &-input{
+      color: #000;
+      background: transparent;
+      border: none;
+      flex-grow: 1;
+      font: inherit;
+      font-size: 14px;
+      height: 100%;
+      outline: none;
+      padding: 0 8px;
+    }
   }
 
   &-menu{
