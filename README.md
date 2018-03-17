@@ -8,6 +8,7 @@ osu!wiki Markdown Previewer.
 
 Requirements:
 
+-   Git
 -   [Node.js](https://nodejs.org/en/)
     -   npm
 
@@ -18,6 +19,21 @@ Requirements:
 3.  Open powershell (or whatever terminal you use)
 4.  `npm install`
 5.  `npm run dev`
+
+## Running
+
+Requirements:
+
+-   Git
+-   [Node.js](https://nodejs.org/en/)
+    -   npm
+
+1.  Fork and clone this repo.
+2.  Open the repo on your computer.
+3.  Open powershell (or whatever terminal you use)
+4.  `npm install`
+5.  `npm run start`
+
 
 ## Errors
 
