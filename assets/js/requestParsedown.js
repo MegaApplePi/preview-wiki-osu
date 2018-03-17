@@ -4,6 +4,7 @@ import notify from "./notify";
 const $loading = document.getElementById("loading");
 const $wiki = document.getElementById("wiki");
 const $wikiBodyPageContent = document.getElementById("wiki-body-page-content");
+const $newsBody = document.getElementById("news-body");
 
 function xhr_loadstart() {
   $loading.removeAttribute("data-hidden");
@@ -20,9 +21,15 @@ function xhr_load(e) {
   } else {
     // didParsedownFail = false;
     // render(responseText);
+    // <(?:(?!input)[^>])*>(?:<\/[^>]*>)?
     responseText = responseText.replace(/\u219c/g, "&#x3c;");// parse \u219c back to <
     responseText = responseText.replace(/\u219d/g, "&#x3e;");// parse \u219d back to >
-    $wikiBodyPageContent.insertAdjacentHTML("afterBegin", responseText);
+
+    if (document.body.getAttribute("data-mode") === "news") {
+      $newsBody.insertAdjacentHTML("beforeEnd", responseText);
+    } else {
+      $wikiBodyPageContent.insertAdjacentHTML("afterBegin", responseText);
+    }
   }
   $wiki.scrollTop = 0;
   inspectDOM();

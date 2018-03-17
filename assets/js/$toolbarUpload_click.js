@@ -9,7 +9,7 @@ const $toolbarPath = document.getElementById("toolbar-path");
 export default function $toolbarUpload_click() {
   let input = dialog.showOpenDialog({
     "title": "Open",
-    "defaultPath": $toolbarPath.getAttribute("data-value") || app.getPath("home"),
+    "defaultPath": $toolbarPath.getAttribute("data-path") || app.getPath("home"),
     "filters": [
       {
         "name": "Markdown",

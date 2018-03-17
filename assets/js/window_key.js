@@ -12,8 +12,8 @@ export function window_keydown(e) {
 }
 export function window_keyup(e) {
   if ((keyMap.Control && keyMap.r) || (keyMap.Control && keyMap.R)) {
-    if ($toolbarPath.getAttribute("data-value")) {
-      parseFile($toolbarPath.getAttribute("data-value"));
+    if ($toolbarPath.getAttribute("data-path")) {
+      parseFile($toolbarPath.getAttribute("data-path"));
     }
   } else if ((keyMap.Control && keyMap.o) || (keyMap.Control && keyMap.O)) {
     $toolbarUpload.click();

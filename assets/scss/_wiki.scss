@@ -22,7 +22,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
   }
 
@@ -74,6 +74,9 @@
       margin-bottom: 0;
       padding-bottom: 15px;
       border-bottom: 5px solid #fc2;
+      &:empty{
+        visibility: hidden;
+      }
     }
   }
   &-body{
