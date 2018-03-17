@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>preview-wiki-osu</title>
+  <link href="assets/css/materialdesignicons.css" rel="stylesheet"/>
+  <link href="assets/css/index.css" rel="stylesheet"/>
+
+  <script>
+    window.nodeRequire = require;
+    delete window.require;
+    delete window.exports;
+    delete window.module;
+  </script>
+</head>
+
+<body>
+  <div id="loading">
+  </div>
+  <div id="toolbar">
+    <i id="toolbar-backward" data-icon="arrow-left"></i>
+    <i id="toolbar-forward" data-icon="arrow-right"></i>
+    <i id="toolbar-refresh" data-icon="refresh"></i>
+    <i id="toolbar-upload" data-icon="upload"></i>
+    <div id="toolbar-path" data-value="">
+      <div id="toolbar-path-status" data-status>
+        <div title="This file was loaded from your machine." data-state="local">
+          <i data-icon="flash-circle"></i>
+          <div id="toolbar-path-status-text">Local</div>
+        </div>
+        <div title="This file was loaded from GitHub." data-state="GitHub">
+          <i data-icon="github-circle"></i>
+          <div id="toolbar-path-status-text">GitHub</div>
+        </div>
+      </div>
+      <input id="toolbar-path-input" type="text" />
+    </div>
+    <i id="toolbar-menu" data-icon="menu"></i>
+    <div id="toolbar-menu-list" data-hidden>
+      <div class="item">
+        <i data-icon="tag-text-outline"></i>
+        <span>Tags</span>
+      </div>
+      <div class="item">
+        <i data-icon="login-variant"></i>
+        <span>What links here?</span>
+      </div>
+      <div class="item">
+        <i data-icon="logout-variant"></i>
+        <span>Here links where?</span>
+      </div>
+    </div>
+  </div>
+  <div id="pseudo"></div>
+  <div id="wiki">
+    <div id="wiki-header">
+      <div id="wiki-header-title-box">
+        <h2 id="wiki-header-subtitle"></h2>
+        <h1 id="wiki-header-title"></h1>
+      </div>
+    </div>
+    <div id="wiki-body">
+      <div id="wiki-body-notice" data-hidden>
+        <div id="wiki-body-notice-box">
+          This page contains an outdated translation of the original content. Please check the <a>English version</a> for the most accurate information (and consider updating the translation if you are able to help out)!
+        </div>
+      </div>
+      <div id="wiki-body-page">
+        <div id="wiki-body-page-toc">
+          <div id="wiki-body-page-toc-content">
+            <div id="wiki-body-page-toc-content-header">
+              Contents
+            </div>
+            <ol id="wiki-body-page-toc-list"></ol>
+          </div>
+        </div>
+        <div id="wiki-body-page-content"></div>
+      </div>
+    </div>
+  </div>
+  <div id="news">
+    <div id="news-header">
+      <h1 id="news-header-title"></h1>
+    </div>
+    <div id="news-body">
+    </div>
+  </div>
+  <div id="notify" data-hidden>
+    <div id="notify-message"></div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
