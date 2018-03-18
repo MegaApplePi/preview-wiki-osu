@@ -105,18 +105,27 @@ export default function inspectDOM() {
   for (let element of images) {
     let src = element.getAttribute("src");
     src = src.replace(/\u03A0/g, "_"); // convert \u03A0 (π) back to underscores
-    if (/^https?:\/\/github.com/.test($toolbarPath.getAttribute("data-path"))) {
+    if (/^https?:\/\/(github|raw\.githubusercontent)\.com/.test($toolbarPath.getAttribute("data-path"))) {
       let pathParts = $toolbarPath.getAttribute("data-path").split(/\\|\//);
       pathParts[pathParts.indexOf("github.com")] = "raw.githubusercontent.com"; // change domain to GitHub's raw domain
       pathParts.splice(pathParts.indexOf("blob"), 1);// remove /blob/ in URL
 
       let newURL;// the new URL
+
       if (document.body.getAttribute("data-mode") === "wiki") {
-        newURL = pathParts.splice(0, pathParts.indexOf("news")).join("/");
-      } else {
-        newURL = pathParts.splice(0, pathParts.indexOf("wiki")).join("/");
+        if (/^\//.test(src)) {
+          newURL = pathParts.splice(0, pathParts.indexOf("wiki")).join("/");
+        } else {
+          newURL = pathParts.splice(0, pathParts.length).join("/");
+        }
+      } else if (document.body.getAttribute("data-mode") === "news") {
+        if (/^\//.test(src)) {
+          newURL = pathParts.splice(0, pathParts.indexOf("news")).join("/");
+        } else {
+          newURL = pathParts.splice(0, pathParts.length).join("/");
+        }
       }
-      src = `${newURL}${src}`;
+      src = `${newURL}/${src}`;
     } else if (/^(https?|mailto):/.test(src)) {
       continue;
     } else if (/^\//.test(src)) {
