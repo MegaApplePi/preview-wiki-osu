@@ -34,7 +34,6 @@ Requirements:
 4.  `npm install`
 5.  `npm run start`
 
-
 ## Errors
 
 -   Error 1: unexpected directory
@@ -73,6 +72,5 @@ Requirements:
 -   [electron](https://electronjs.org)
 -   [js-yaml](https://github.com/nodeca/js-yaml)
 -   [showdown](https://github.com/showdownjs/showdown)
--   [concurrently](https://github.com/kimmobrunfeldt/concurrently)
 -   [electron-packager](https://github.com/electron-userland/electron-packager)
 -   [webpack](https://webpack.js.org)

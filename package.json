@@ -7,8 +7,7 @@
   "scripts": {
     "start": "electron . --enable-logging",
     "sass": "sass --watch ./assets/scss:./assets/css --style compressed",
-    "dev": "concurrently --kill-others \"npm run start\" \"npm run sass\" \"npm run pack\"",
-    "dev_linux": "npm run start & npm run sass & npm run pack",
+    "dev": "npm run start & npm run sass & npm run pack",
     "pack": "webpack --config webpack.config.js",
     "build": "npm run build_win && npm run build_mac",
     "build_test": "electron-packager . preview-wiki-osu --platform=win32 --arch=x64 --out=build --asar=false --prune=true --overwrite --win32metadata.CompanyName=\"MegaApple_Pi\" --win32metadata.FileDescription=\"preview-wiki-osu\" --win32metadata.OriginalFilename=\"preview-wiki-osu.exe\" --win32metadata.ProductName=\"preview-wiki-osu\" --win32metadata.InternalName=\"preview-wiki-osu\" --icon=assets/icon/ico/icon.ico --ignore=assets/.sass-cache --ignore=.gitignore --ignore=.jshintrc --ignore=assets/scss --ignore=package-lock.json --ignore=README.md --ignore=unmaintained.png",
@@ -26,7 +25,6 @@
     "showdown": "^1.8.6"
   },
   "devDependencies": {
-    "concurrently": "^3.5.1",
     "electron-packager": "^10.1.2",
     "eslint": "^4.19.0",
     "webpack": "^3.11.0"
