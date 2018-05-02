@@ -1,5 +1,5 @@
 import events from "./events";
-import update from "./update";
+// import update from "./update";
 
-update();
+// update();
 events();

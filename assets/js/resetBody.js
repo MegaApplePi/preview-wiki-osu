@@ -1,15 +1,15 @@
-const $wikiBodyPageContent = document.getElementById("wiki-body-page-content");
-const $wikiBodyPageTocList = document.getElementById("wiki-body-page-toc-list");
-const $newsBody = document.getElementById("news-body");
+import {$newsBody, $wikiBodyPageContent, $wikiBodyPageTocList} from "./$$DOM";
 
+// reset body function
+// this just removes everything from the wiki and news bodies
 export default function resetBody() {
   while ($wikiBodyPageContent.firstChild) {
-    $wikiBodyPageContent.removeChild($wikiBodyPageContent.firstChild);
+    $wikiBodyPageContent.firstChild.remove();
   }
   while ($wikiBodyPageTocList.firstChild) {
-    $wikiBodyPageTocList.removeChild($wikiBodyPageTocList.firstChild);
+    $wikiBodyPageTocList.firstChild.remove();
   }
   while ($newsBody.firstChild) {
-    $newsBody.removeChild($newsBody.firstChild);
+    $newsBody.firstChild.remove();
   }
 }

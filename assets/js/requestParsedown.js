@@ -1,10 +1,6 @@
+import {$loading, $newsBody, $wiki, $wikiBodyPageContent} from "./$$DOM";
 import inspectDOM from "./inspectDOM";
 import notify from "./notify";
-
-const $loading = document.getElementById("loading");
-const $wiki = document.getElementById("wiki");
-const $wikiBodyPageContent = document.getElementById("wiki-body-page-content");
-const $newsBody = document.getElementById("news-body");
 
 function xhr_loadstart() {
   $loading.removeAttribute("data-hidden");
