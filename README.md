@@ -74,3 +74,4 @@ Requirements:
 -   [showdown](https://github.com/showdownjs/showdown)
 -   [electron-packager](https://github.com/electron-userland/electron-packager)
 -   [webpack](https://webpack.js.org)
+    -   [UglifyJS Webpack Plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin)
