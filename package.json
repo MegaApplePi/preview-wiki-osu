@@ -1,5 +1,6 @@
 {
   "name": "preview-wiki-osu",
+  "private": true,
   "version": "0.0.0",
   "description": "",
   "main": "main.js",
@@ -20,13 +21,19 @@
   },
   "homepage": "https://github.com/MegaApplePi/preview-wiki-osu#readme",
   "dependencies": {
-    "electron": "^1.8.4",
+    "electron": "^1.8.6",
     "js-yaml": "^3.11.0",
-    "showdown": "^1.8.6"
+    "showdown": "^1.8.6",
+    "timeago.js": "^3.0.2"
   },
   "devDependencies": {
+    "css-loader": "^0.28.11",
     "electron-packager": "^10.1.2",
-    "eslint": "^4.19.0",
+    "eslint": "^4.19.1",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^3.11.0"
   }
 }
