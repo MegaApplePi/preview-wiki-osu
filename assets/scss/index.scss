@@ -8,18 +8,7 @@ $grey900: #212121;
 $desktop: "(min-width: 840px)";
 $mobile: "(max-width: 839px)";
 
-@font-face{
-  font-family: 'Exo 2';
-  src: url('../font/Exo_2/Exo2-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face{
-  font-family: 'Noto Sans';
-  src: url('../font/Noto_Sans/NotoSans-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+@import "font";
 
 ::selection {
   color: #fff;
