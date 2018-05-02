@@ -1,24 +1,9 @@
-/* globals nodeRequire */
-import getHeadingID from "./getHeadingID";
+import {$toolbarPath, $wikiBodyPageTocList, $wikiHeaderSubtitle, $wikiHeaderTitle} from "./$$DOM";
+import {path, shell} from "./$$nodeRequire";
+import getHeadingID from "./inspectDOM/getHeadingID";
+import getHeadings from "./inspectDOM/getHeadings";
+import getImages from "./inspectDOM/getImages";
 
-const {shell} = nodeRequire("electron");
-
-const path = nodeRequire("path");
-
-const $wikiHeaderTitle = document.getElementById("wiki-header-title");
-const $wikiHeaderSubtitle = document.getElementById("wiki-header-subtitle");
-const $wikiBodyPageTocList = document.getElementById("wiki-body-page-toc-list");
-const $wikiBodyPageContent = document.getElementById("wiki-body-page-content");
-const $toolbarPath = document.getElementById("toolbar-path");
-
-function getHeadings() {
-  return $wikiBodyPageContent.querySelectorAll("h1, h2, h3");
-  // h4, h5, h6 are no longer displayed
-  // return $wikiBodyPageContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
-}
-function getImages() {
-  return document.querySelectorAll("#wiki-body-page-content img, #news-body img");
-}
 function getLinks() {
   return document.querySelectorAll("#wiki-body-page-content a, #news-body a");
 }
@@ -106,6 +91,7 @@ export default function inspectDOM() {
     let src = element.getAttribute("src");
     src = src.replace(/\u03A0/g, "_"); // convert \u03A0 (π) back to underscores
     if (/^https?:\/\/(github|raw\.githubusercontent)\.com/.test($toolbarPath.getAttribute("data-path"))) {
+      // fails loading external links
       let pathParts = $toolbarPath.getAttribute("data-path").split(/\\|\//);
       pathParts[pathParts.indexOf("github.com")] = "raw.githubusercontent.com"; // change domain to GitHub's raw domain
       pathParts.splice(pathParts.indexOf("blob"), 1);// remove /blob/ in URL
@@ -142,12 +128,12 @@ export default function inspectDOM() {
       src = path.resolve(filePath, src);
     }
 
-    element.src = src;
-    let hasTitle = element.hasAttribute("title") && (element.getAttribute("title").length > 0);
+    // append a random number to purge image caching
+    element.src = `${src}?${Math.random()}`;
     let isAlone = (element.parentElement.children.length === 1) && (element.parentElement.textContent.length === 0);
     let isParentTagP = element.parentElement.tagName === "P";
 
-    if (hasTitle && isAlone && isParentTagP) {
+    if (isAlone && isParentTagP) {
       element.parentElement.classList.add("figure");
       element.classList.add("figure");
       let em = document.createElement("em");
