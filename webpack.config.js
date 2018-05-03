@@ -1,7 +1,7 @@
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
-  "entry": "./assets/js/app.js",
+  "entry": "./resources/js/app.js",
   "externals": ["electron", "fs"],
   "output": {
     "filename": "index.js"
@@ -28,8 +28,8 @@ module.exports = {
   //         {
   //           "loader": "sass-loader",
   //           "options":{
-  //             "file": "assets/scss/index.scss",
-  //             "outFile": "assets/css/index.css"
+  //             "file": "resources/scss/index.scss",
+  //             "outFile": "resources/css/index.css"
   //           }
   //         }
   //       ]
