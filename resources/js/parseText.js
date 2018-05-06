@@ -1,4 +1,4 @@
-import {$newsBody, $newsHeaderTitle, $pseudo, $wikiBodyNotice} from "./$$DOM";
+import {$metadata, $newsBody, $newsHeaderTitle, $pseudo, $wikiBodyNotice} from "./$$DOM";
 import requestParsedown from "./requestParsedown";
 import resetBody from "./resetBody";
 import {timeagojs} from "./$$nodeRequire";
@@ -87,6 +87,9 @@ export default function parseText(text) {
   // so, is there any metadata to look at?
   if (metadata.length > 0) {
     // if so:
+    // send a copy to data
+    $metadata.setAttribute("data-metadata", JSON.stringify(metadata));
+
     // remove those lines
     lines.splice(0, metadata.length);
 

@@ -1,5 +1,5 @@
 import {$toolbarPath, $toolbarUpload} from "./$$DOM";
-import parseFile from "./parseFile";
+import parseMarkdown from "./parseMarkdown";
 import {remote} from "./$$nodeRequire";
 
 let keyMap = {};
@@ -17,7 +17,7 @@ export function window_keyup(e) {
     // if so, is there a value saved in the toolbar path?
     if ($toolbarPath.getAttribute("data-path")) {
       // if so, parse the file again
-      parseFile($toolbarPath.getAttribute("data-path"));
+      parseMarkdown($toolbarPath.getAttribute("data-path"));
     }
   } else if ((keyMap.Control && keyMap.o) || (keyMap.Control && keyMap.O)) { // is Control and O being pressed at the same time?
     // if so, show the open dialog

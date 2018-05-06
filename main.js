@@ -11,7 +11,7 @@ function createWindow() {
     "minWidth": 750,
     "width": 750,
     // "maximizable": false
-    "icon": path.join(__dirname, "/assets/icon/ico/icon.ico")
+    "icon": path.join(__dirname, "/resources/icon/png/256.png")
   });
   win.setMenu(null);
 

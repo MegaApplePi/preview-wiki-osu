@@ -7,13 +7,13 @@
   "author": "MegaApple_Pi",
   "scripts": {
     "start": "electron . --enable-logging",
-    "sass": "sass --watch ./assets/scss:./assets/css --style compressed",
+    "sass": "sass --watch ./resources/scss:./resources/css --style compressed",
     "dev": "npm run start & npm run sass & npm run pack",
     "pack": "webpack --config webpack.config.js",
     "build": "npm run build_win && npm run build_mac",
-    "build_test": "electron-packager . preview-wiki-osu --platform=win32 --arch=x64 --out=build --asar=false --prune=true --overwrite --win32metadata.CompanyName=\"MegaApple_Pi\" --win32metadata.FileDescription=\"preview-wiki-osu\" --win32metadata.OriginalFilename=\"preview-wiki-osu.exe\" --win32metadata.ProductName=\"preview-wiki-osu\" --win32metadata.InternalName=\"preview-wiki-osu\" --icon=assets/icon/ico/icon.ico --ignore=assets/.sass-cache --ignore=.gitignore --ignore=.jshintrc --ignore=assets/scss --ignore=package-lock.json --ignore=README.md --ignore=unmaintained.png",
-    "build_win": "electron-packager . preview-wiki-osu --platform=win32 --arch=all --out=build --asar=true --prune=true --overwrite --win32metadata.CompanyName=\"MegaApple_Pi\" --win32metadata.FileDescription=\"preview-wiki-osu\" --win32metadata.OriginalFilename=\"preview-wiki-osu.exe\" --win32metadata.ProductName=\"preview-wiki-osu\" --win32metadata.InternalName=\"preview-wiki-osu\" --icon=assets/icon/ico/icon.ico --ignore=assets/.sass-cache --ignore=.gitignore --ignore=.jshintrc --ignore=assets/scss --ignore=package-lock.json --ignore=README.md --ignore=unmaintained.png",
-    "build_mac": "electron-packager . preview-wiki-osu --platform=darwin --arch=all --out=build --asar=true --prune=true --overwrite --icon=assets/icon/icns/icon.icns --ignore=assets/.sass-cache --ignore=.gitignore --ignore=.jshintrc --ignore=assets/scss --ignore=package-lock.json --ignore=README.md --ignore=unmaintained.png"
+    "build_test": "electron-packager . preview-wiki-osu --platform=win32 --arch=x64 --out=build --asar=false --prune=true --overwrite --win32metadata.CompanyName=\"MegaApple_Pi\" --win32metadata.FileDescription=\"preview-wiki-osu\" --win32metadata.OriginalFilename=\"preview-wiki-osu.exe\" --win32metadata.ProductName=\"preview-wiki-osu\" --win32metadata.InternalName=\"preview-wiki-osu\" --icon=resources/icon/ico/icon.ico --ignore=resources/.sass-cache --ignore=.gitignore --ignore=.jshintrc --ignore=resources/scss --ignore=package-lock.json --ignore=README.md --ignore=unmaintained.png",
+    "build_win": "electron-packager . preview-wiki-osu --platform=win32 --arch=all --out=build --asar=true --prune=true --overwrite --win32metadata.CompanyName=\"MegaApple_Pi\" --win32metadata.FileDescription=\"preview-wiki-osu\" --win32metadata.OriginalFilename=\"preview-wiki-osu.exe\" --win32metadata.ProductName=\"preview-wiki-osu\" --win32metadata.InternalName=\"preview-wiki-osu\" --icon=resources/icon/ico/icon.ico --ignore=resources/.sass-cache --ignore=.gitignore --ignore=.jshintrc --ignore=resources/scss --ignore=package-lock.json --ignore=README.md --ignore=unmaintained.png",
+    "build_mac": "electron-packager . preview-wiki-osu --platform=darwin --arch=all --out=build --asar=true --prune=true --overwrite --icon=resources/icon/icns/icon.icns --ignore=resources/.sass-cache --ignore=.gitignore --ignore=.jshintrc --ignore=resources/scss --ignore=package-lock.json --ignore=README.md --ignore=unmaintained.png"
   },
   "repository": {
     "type": "git",

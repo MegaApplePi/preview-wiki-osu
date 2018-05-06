@@ -1,7 +1,7 @@
 import {app, dialog} from "./$$nodeRequire";
 import {$toolbarPath} from "./$$DOM";
 import notify from "./notify";
-import parseFile from "./parseFile";
+import parseMarkdown from "./parseMarkdown";
 
 // toolbar upload click event
 export default function $toolbarUpload_click() {
@@ -20,7 +20,7 @@ export default function $toolbarUpload_click() {
   // check if there is a file
   if (input) {
     // if so, parse it
-    parseFile(input[0]);
+    parseMarkdown(input[0]);
   } else {
     notify("Error 6: no file was selected");
   }

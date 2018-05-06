@@ -1,0 +1,25 @@
+#metadata{
+  @include overlay;
+  &-dialog{
+    @include dialog;
+    &-close{
+      @include close;
+    }
+    &-empty{
+      align-self: center;
+      &[data-hidden]{
+        display: none;
+      }
+    }
+    &-list{
+      align-self: flex-start;
+      &[data-hidden]{
+        display: none;
+      }
+      ul{
+        list-style: none;
+        padding: 0;
+      }
+    }
+  }
+}

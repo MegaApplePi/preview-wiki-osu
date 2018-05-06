@@ -1,5 +1,5 @@
 import {$toolbarPathStatus} from "./$$DOM";
-import parseFile from "./parseFile";
+import parseMarkdown from "./parseMarkdown";
 
 // drop event handler
 export default function window_drop(e) {
@@ -8,8 +8,8 @@ export default function window_drop(e) {
 
   // assume we are in local mode
   $toolbarPathStatus.setAttribute("data-status", "local");
-  // hand the first file's path to parseFile()
-  parseFile(e.dataTransfer.files[0].path);
+  // hand the first file's path to parseMarkdown()
+  parseMarkdown(e.dataTransfer.files[0].path);
 
   return false;
 }

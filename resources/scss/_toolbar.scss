@@ -72,13 +72,15 @@
       position: absolute;
       right: 0;
       top: 32px;
+      padding-right: 4px;
       &[data-hidden]{
         display: none;
       }
-      .item{
+      @mixin item{
         display: flex;
         align-items: center;
         cursor: pointer;
+        padding-right: 4px;
 
         &:hover{
           background: #ccc;
@@ -89,6 +91,15 @@
           pointer-events: none;
           user-select: none;
         }
+      }
+      &-tag{
+        @include item;
+      }
+      &-here{
+        @include item;
+      }
+      &-where{
+        @include item;
       }
     }
   }

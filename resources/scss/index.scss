@@ -33,18 +33,7 @@ body{
       color: $teal600;
     }
   }
-  #loading{
-    background: rgba(0, 0, 0, 0.25);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    &[data-hidden]{
-      display: none;
-    }
-  }
+  @import "loading";
   @import "toolbar";
   @import "notify";
   @import "pseudo";
@@ -63,6 +52,9 @@ body{
     #news{
       display: none!important;
     }
+    #media{
+      display: none!important;
+    }
   }
   &[data-mode="news"]{
     ::-webkit-scrollbar{
@@ -79,9 +71,32 @@ body{
     #wiki{
       display: none!important;
     }
+    #media{
+      display: none!important;
+    }
     #toolbar-menu{
+    }
+  }
+  &[data-mode="media"]{
+    ::-webkit-scrollbar{
+      width: 16px;
+      &-track{
+        border: #b5b5b5 solid 1px;
+        background: #dbdbdb;
+      }
+      &-thumb{
+        border: #ccc solid 1px;
+        background: #b5b5b5;
+      }
+    }
+    #wiki, #news, #toolbar-menu-list-tag, #toolbar-menu-list-where{
+      display: none!important;
     }
   }
   @import "wiki";
   @import "news";
+  @import "media";
+
+  @import "dialog";
+  @import "metadata";
 }
