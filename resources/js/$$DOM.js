@@ -24,6 +24,10 @@ export const $wikiBodyPageTocList = document.getElementById("wiki-body-page-toc-
 export const $wikiHeaderSubtitle = document.getElementById("wiki-header-subtitle");
 export const $wikiHeaderTitle = document.getElementById("wiki-header-title");
 
+// media //
+export const $media = document.getElementById("media");
+export const $mediaImage = document.getElementById("media-image");
+
 // miscellaneous //
 export const $loading = document.getElementById("loading");
 export const $pseudo = document.getElementById("pseudo");

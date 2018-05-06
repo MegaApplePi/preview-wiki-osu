@@ -1,7 +1,7 @@
 import {$loading, $toolbarPathInput, $toolbarPathStatus} from "./$$DOM";
 import {fs, path} from "./$$nodeRequire";
 import notify from "./notify";
-import parseFile from "./parseFile";
+import parseMarkdown from "./parseMarkdown";
 import parseText from "./parseText";
 import resetBody from "./resetBody";
 import setPaths from "./setPaths";
@@ -95,7 +95,7 @@ export default function $toolbarPathInput_keypress(e) {
       $toolbarPathStatus.setAttribute("data-status", "local");
 
       // parse file from path value
-      parseFile(path.resolve(value));
+      parseMarkdown(path.resolve(value));
     } else {
       // invalid path
       notify("Error 9: invalid path");
