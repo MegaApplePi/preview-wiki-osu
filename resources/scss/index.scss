@@ -54,7 +54,7 @@ body{
     }
     #media{
       display: none!important;
-  }
+    }
   }
   &[data-mode="news"]{
     ::-webkit-scrollbar{
@@ -97,4 +97,6 @@ body{
   @import "news";
   @import "media";
 
+  @import "dialog";
+  @import "metadata";
 }

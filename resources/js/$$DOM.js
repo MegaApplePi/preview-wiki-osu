@@ -28,6 +28,12 @@ export const $wikiHeaderTitle = document.getElementById("wiki-header-title");
 export const $media = document.getElementById("media");
 export const $mediaImage = document.getElementById("media-image");
 
+// metadata //
+export const $metadata = document.getElementById("metadata");
+export const $metadataDialogClose = document.getElementById("metadata-dialog-close");
+export const $metadataDialogEmpty = document.getElementById("metadata-dialog-empty");
+export const $metadataDialogList = document.getElementById("metadata-dialog-list");
+
 // miscellaneous //
 export const $loading = document.getElementById("loading");
 export const $pseudo = document.getElementById("pseudo");
