@@ -19,8 +19,7 @@
     <i data-icon="loading"></i>
   </div>
   <div id="toolbar">
-    <i id="toolbar-backward" data-icon="arrow-left"></i>
-    <i id="toolbar-forward" data-icon="arrow-right"></i>
+    <i id="toolbar-history" data-icon="history"></i>
     <i id="toolbar-refresh" data-icon="refresh"></i>
     <i id="toolbar-upload" data-icon="upload"></i>
     <div id="toolbar-path" data-value="">
@@ -38,17 +37,21 @@
     </div>
     <i id="toolbar-menu" data-icon="menu"></i>
     <div id="toolbar-menu-list" data-hidden>
-      <div class="item">
-        <i data-icon="tag-text-outline"></i>
-        <span>Tags</span>
+      <div id="toolbar-menu-list-tag">
+        <i data-icon="file-hidden"></i>
+        <span>Metadata from this page</span>
       </div>
-      <div class="item">
+      <div id="toolbar-menu-list-here">
         <i data-icon="login-variant"></i>
         <span>What links here?</span>
       </div>
-      <div class="item">
+      <div id="toolbar-menu-list-where">
         <i data-icon="logout-variant"></i>
         <span>Here links where?</span>
+      </div>
+      <div id="toolbar-menu-list-where">
+        <i data-icon="delete"></i>
+        <span>Purge link cache</span>
       </div>
     </div>
   </div>
