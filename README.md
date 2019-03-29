@@ -1,6 +1,6 @@
 # preview-wiki-osu
 
-> mdp-osu, but—programmatically speaking—modularized
+> RIP Late 2016? - May 2018; Previously named `mdp-osu`, a tool to render Markdown files as if they were from osu! web. Died after motivation lost.
 
 osu!wiki Markdown Previewer.
 
@@ -65,7 +65,7 @@ Requirements:
     -   Type: local files
     -   The given path does not exist
 
-## Respect
+## Stuff used in this project
 
 -   [osu-web](https://github.com/ppy/osu-web)
 -   [osu-wiki](https://github.com/ppy/osu-wiki)
