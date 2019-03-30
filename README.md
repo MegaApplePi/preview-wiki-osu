@@ -1,8 +1,24 @@
 # preview-wiki-osu
 
-> RIP Late 2016? - May 2018; Previously named `mdp-osu`, a tool to render Markdown files as if they were from osu! web. Died after motivation lost.
+> RIP June 2017 - May 2018; Previously named `mdp-osu`, a tool to render Markdown files as if they were from osu! web. Died after motivation loss.
 
 osu!wiki Markdown Previewer.
+
+---
+
+## Final regards:
+
+If errors 3 or 4 keep appearing, then it is likely that the Parsedown scripts (which is/was hosted on my server) were removed by me. When this happens (or prior to this), see the PHP folder for the Parsedown files.
+
+Basically, you will need to run a local PHP server (`php -S localhost:8080`, or whichever port you want) with the contents of that folder (or host it on your web server). Once started, replace line 40 in `requestParsedown.js` with:
+
+```js
+xhr.open("POST", "localhost:8080/index.php");
+```
+
+Or the URL that you are hosting the PHP scripts on. With that, error 3/4 should go away.
+
+---
 
 ## Developing
 
